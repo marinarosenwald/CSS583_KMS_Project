@@ -24,8 +24,15 @@ Set up environment with:
 Orca-3b setup:
     go to 
         https://huggingface.co/TheBloke/orca_mini_3B-GGML/tree/main
-    download 
+    click files and versions and download 
         orca-mini-3b.ggmlv3.q4_1.bin
+    move download to the models folder
+
+LLama2-7b setup:
+    go to 
+        https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
+    click files and versions and download
+         llama-2-7b-chat.ggmlv3.q4_1.bin
     move download to the models folder
 
 
