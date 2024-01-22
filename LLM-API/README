@@ -1,0 +1,31 @@
+Using:
+    pip3
+    Python3.9.6
+    venv
+
+venv instruction:
+    install venv:
+        pip3 install virtualenv
+    activate venv:
+        source venv/bin/activate 
+    exit venv:
+        deactivate
+
+I ran 
+    pip3 install llama-cpp-python==0.1.78 
+to install verion 0.1.78. If your model is .ggml
+then use a version less than 0.1.79. If your model is .gguf
+then use a version greater than 0.1.79.
+
+Set up environment with:
+    source venv/bin/activate
+    pip3 install -r requirements.txt
+
+Orca-3b setup:
+    go to 
+        https://huggingface.co/TheBloke/orca_mini_3B-GGML/tree/main
+    download 
+        orca-mini-3b.ggmlv3.q4_1.bin
+    move download to the models folder
+
+
