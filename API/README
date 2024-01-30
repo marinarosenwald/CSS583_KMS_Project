@@ -9,7 +9,7 @@ venv instruction:
     create venv folder:
         virtualenv <name>
     activate venv:
-        source <name/bin/activate 
+        source <name>/bin/activate 
         pip3 install -r requirements.txt
     exit venv:
         deactivate
@@ -20,8 +20,11 @@ Setup:
         PORT = "5000"
         ATLAS_URI= "tbd"
         DB_NAME= "tbd"
-        DB_DEFINITION_TAG = "definitions"
-        DB_DEFINITION_PREFIX = "/definition"
-    run main.py
+        DEFINITION_TAG= "definitions"
+        DEFINITION_PREFIX= "/definition"
+        LLM_TAG= "llm"
+        LLM_PREFIX="/llm"
+    To start run:
+        main.py
     To see api documentation go to:
         http://<host>:<port>/docs#/
