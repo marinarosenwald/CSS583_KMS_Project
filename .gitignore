@@ -1,2 +1,3 @@
-/LLM-API/models/*
-!/LLM-API/models/.gitkeep 
+/LLM-Server/models/*
+!/LLM-Server/models/.gitkeep 
+/.DS_Store

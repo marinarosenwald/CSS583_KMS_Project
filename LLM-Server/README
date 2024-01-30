@@ -6,8 +6,11 @@ Using:
 venv instruction:
     install venv:
         pip3 install virtualenv
+    create venv folder:
+        virtualenv <name>
     activate venv:
-        source venv/bin/activate 
+        source <name/bin/activate 
+        pip3 install -r requirements.txt
     exit venv:
         deactivate
 
@@ -16,10 +19,6 @@ I ran
 to install verion 0.1.78. If your model is .ggml
 then use a version less than 0.1.79. If your model is .gguf
 then use a version greater than 0.1.79.
-
-Set up environment with:
-    source venv/bin/activate
-    pip3 install -r requirements.txt
 
 Orca-3b setup:
     go to 

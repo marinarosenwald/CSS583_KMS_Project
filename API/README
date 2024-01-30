@@ -1,0 +1,15 @@
+Using:
+    pip3
+    Python3.9.6
+    venv
+
+venv instruction:
+    install venv:
+        pip3 install virtualenv
+    create venv folder:
+        virtualenv <name>
+    activate venv:
+        source <name/bin/activate 
+        pip3 install -r requirements.txt
+    exit venv:
+        deactivate
