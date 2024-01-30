@@ -25,11 +25,18 @@ def list_words(request: Request):
 
 
 @router.get("/{id}", response_description="Get a single word by id", response_model=Definition)
-def find_word(id: str, request: Request):
-    if (word := request.app.database[os.getenv("DB_DEFINITION_TAG")].find_one({"_id": id})) is not None:
-        return word
+def find_word_by_id(id: str, request: Request):
+    if (found_word := request.app.database[os.getenv("DB_DEFINITION_TAG")].find_one({"_id": id})) is not None:
+        return found_word
 
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Word with ID {id} not found")
+
+@router.get("/{word}", response_description="Get a single word by word", response_model=Definition)
+def find_word_by_word(word: str, request: Request):
+    if (found_word := request.app.database[os.getenv("DB_DEFINITION_TAG")].find_one({"word": word})) is not None:
+        return found_word
+
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Word: {word} not found")
 
 
 @router.put("/{id}", response_description="Update a Definition", response_model=Definition)
