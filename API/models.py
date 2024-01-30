@@ -12,3 +12,6 @@ class DefinitionUpdate(BaseModel):
     word: Optional[str]
     definition: Optional[str]
     keywords: Optional[List[str]]
+
+class LLM(BaseModel):
+    text: str = Field(...)
