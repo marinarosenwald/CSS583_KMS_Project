@@ -13,3 +13,15 @@ venv instruction:
         pip3 install -r requirements.txt
     exit venv:
         deactivate
+
+Setup:
+    In API folder create .env file: Example below
+        HOST = "127.0.0.1"
+        PORT = "5000"
+        ATLAS_URI= "tbd"
+        DB_NAME= "tbd"
+        DB_DEFINITION_TAG = "definitions"
+        DB_DEFINITION_PREFIX = "/definition"
+    run main.py
+    To see api documentation go to:
+        http://<host>:<port>/docs#/
