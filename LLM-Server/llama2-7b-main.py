@@ -1,5 +1,5 @@
 from llama_cpp import Llama
-llm = Llama(model_path="./models/llama-2-7b-chat.ggmlv3.q4_1.bin",
+llm = Llama(model_path="./llm-models/llama-2-7b-chat.ggmlv3.q4_1.bin",
              n_ctx=512, n_batch=32, verbose=False)
 instruction = input("User: ")
 

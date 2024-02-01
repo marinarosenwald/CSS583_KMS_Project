@@ -14,6 +14,8 @@ venv instruction:
     exit venv:
         deactivate
 
+
+
 I ran 
     pip3 install llama-cpp-python==0.1.78 
 to install verion 0.1.78. If your model is .ggml
@@ -34,4 +36,13 @@ LLama2-7b setup:
          llama-2-7b-chat.ggmlv3.q4_1.bin
     move download to the models folder
 
-
+Setup:
+    In LLM-Server folder create .env file: Example below
+        HOST= "127.0.0.1"
+        PORT= "8000"
+        LLM_TAG= "llm-server"
+        LLM_PREFIX="/llm-server"
+    To start run:
+        main.py
+    To see api documentation go to:
+        http://<host>:<port>/docs#/

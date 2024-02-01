@@ -1,5 +1,5 @@
-/LLM-Server/models/*
-!/LLM-Server/models/.gitkeep 
+/LLM-Server/llm-models/*
+!/LLM-Server/llm-models/.gitkeep 
 **/.DS_Store
 **/__pycache__
 **.env
