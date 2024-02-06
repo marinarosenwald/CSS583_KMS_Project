@@ -1,0 +1,16 @@
+modules:
+  confluence:globalPage:
+    - key: css583helloworlduiapp-hello-world
+      resource: main
+      resolver:
+        function: resolver
+      title: CSS583 Hello World! UI App
+      route: hello-world
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  id: ari:cloud:ecosystem::app/246bdf72-36cf-4d7f-8597-83c4f8378677
