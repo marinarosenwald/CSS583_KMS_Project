@@ -9,6 +9,10 @@ dict_router = APIRouter()
 
 @dict_router.post("/", response_description="Define a word", status_code=status.HTTP_201_CREATED, response_model=Definition)
 def create_word(request: Request, word: Definition = Body(...)):
+    search_word = word.word
+    if (found_word := request.app.database[os.getenv("DEFINITION_TAG")].find_one({"word": search_word})) is not None:
+         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Word: {search_word} already exists")
+
     word = jsonable_encoder(word)
     new_word = request.app.database[os.getenv("DEFINITION_TAG")].insert_one(word)
     created_word = request.app.database[os.getenv("DEFINITION_TAG")].find_one(
