@@ -13,3 +13,8 @@ To run:
 
 To stop: 
 control-c in terminal/command line
+
+Example .env:
+    NODE_ENV=development
+    HOST= "127.0.0.1"
+    PORT= "5000"    
