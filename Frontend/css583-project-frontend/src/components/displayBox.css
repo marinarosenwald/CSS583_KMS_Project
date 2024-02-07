@@ -1,0 +1,68 @@
+.row {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.column {
+    flex: 33.33%;
+    padding: 5px; 
+}
+
+.box {
+    display: block;
+    margin: auto;
+    background-color: #FFF;
+    border-radius: 25px;
+    width: 50%;
+    color: #000;
+    border: 5px solid black; 
+}
+
+#disclaimer h1{
+    text-align: center;
+    list-style: none;
+    padding: 8px 8px 0px 8px;
+    position: relative;
+    font-size: 2rem;
+}
+
+#disclaimer p{
+    list-style: none;
+    padding: 8px;
+    position: relative;
+    font-size: 1.3rem;
+}
+
+.DinsideBox {
+    display: flex;
+    align-items: center;
+}
+
+.Dicon {
+    height: 50px; 
+    width: 50px;
+}
+
+.DinsideText{
+    font-size: 1.4rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.boxList {
+    display: block;
+    padding: 10px; 
+    background-color: rgb(247, 235, 235);
+    border-radius: 25px;
+    width: 100%;
+    color: #000;
+    border: 5px solid black; 
+}
+
+@media screen and (max-width:769px){
+.row{
+    display: block;
+}
+}
