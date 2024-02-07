@@ -28,3 +28,18 @@ Setup:
         main.py
     To see api documentation go to:
         http://<host>:<port>/docs#/
+
+Post Call Dictionary API Structure:
+    example:
+    {
+        "word": "a", # required
+        "definition": "b", # required
+        "keywords": [] # field required, accepts [] or example [ "string", "string"]
+    }   
+    example option:
+    {
+        "id": "1" # not required field, will auto create. Also accepts alias _id
+        "word": "a", # required
+        "definition": "b", # required
+        "keywords": [] # field required, accepts [] or example [ "string", "string"]
+    }   
