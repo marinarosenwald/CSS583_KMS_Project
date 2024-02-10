@@ -10,7 +10,7 @@ async function postWord(data) {
 
 async function getAllWords() {
     const url = `${baseUrl}/definition/`
-    const response = await axios.get();
+    const response = await axios.get(url);
     return response.data;
 }
 
