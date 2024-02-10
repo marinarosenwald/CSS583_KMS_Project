@@ -14,6 +14,7 @@ def create_word(request: Request, word: Definition = Body(...)):
          raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Word: {search_word} already exists")
 
     word = jsonable_encoder(word)
+    
     new_word = request.app.database[os.getenv("DEFINITION_TAG")].insert_one(word)
     created_word = request.app.database[os.getenv("DEFINITION_TAG")].find_one(
         {"_id": new_word.inserted_id}
