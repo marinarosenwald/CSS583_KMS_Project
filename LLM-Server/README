@@ -9,7 +9,7 @@ venv instruction:
     create venv folder:
         virtualenv <name>
     activate venv:
-        source <name/bin/activate 
+        source <name>/bin/activate 
         pip3 install -r requirements.txt
     exit venv:
         deactivate

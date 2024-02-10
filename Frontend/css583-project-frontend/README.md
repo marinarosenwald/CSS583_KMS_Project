@@ -16,5 +16,8 @@ control-c in terminal/command line
 
 Example .env:
     NODE_ENV=development
-    HOST= "127.0.0.1"
-    PORT= "5000"    
+    REACT_APP_API_HOST=127.0.0.1
+    REACT_APP_API_PORT=5000
+    REACT_APP_API_BASE_URL =http://${API_HOST}:${API_PORT}"
+
+# all custom environment variable outside of NODE_ENV must start with REACT_APP
