@@ -1,7 +1,6 @@
 from llama_cpp import Llama
 # Step 1: Create a llama wrapper class for accessing the local LLM
-root_path = "C:/Users/mjh2g/Documents/GitHub/CSS583_KMS_Project/LLM-Server"
-llm = Llama(model_path=root_path + "/llm-models/llama-2-7b-chat.ggmlv3.q4_1.bin", n_ctx=512, n_batch=32, verbose=False)
+llm = Llama(model_path="./llm-models/llama-2-7b-chat.ggmlv3.q4_1.bin", n_ctx=512, n_batch=32, verbose=False)
 print("Complete Step 1")
 # Step 2: Create a LLM class to act as a response model for the API endpoints
 from pydantic import BaseModel, Field
