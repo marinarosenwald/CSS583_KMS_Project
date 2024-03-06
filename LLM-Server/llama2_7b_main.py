@@ -23,16 +23,18 @@ class LLM_Llama():
         prompt= f"""<s>[INST] <<SYS>>{self.system_prompt}<</SYS>>\n{self.instruction_prompt} [/INST]"""
 
         # Step 4: Retrieve response, format, and send in a response dictionary object
-        output = self.llm(prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
+        output = self.llm(input,temperature = 0.7, max_tokens=448,top_k=20, top_p=0.9, repeat_penalty=1.15) #Note, change prompt to input
         res = output['choices'][0]['text'].strip()
 
+        '''
         # Step 5: Perform a clean up of the LLM response to retrieve ONLY definition
         res = res.split("\n",10)
         length = len(res)
         print(res[length-1])
         return res[length-1]
-        #print(res)
-        #return res
+        '''
+        print(res)
+        return res
     
     def llm_keyword_extraction(self,input):
         # Step 1: Create a system and instruction prompt for the LLM to extract keywords from a definition
@@ -48,12 +50,15 @@ class LLM_Llama():
         # Step 4: Retrieve response, format, and send in a response dictionary object
         output = self.llm(prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
         res = output['choices'][0]['text'].strip()
-        
+        '''
         # Step 5: Perform a clean up of the LLM response to retrieve ONLY keywords
         res = res.split("\n",10)
         length = len(res)
         print(res[length-1])
         return res[length-1]
+        '''
+        print(res)
+        return res
     
     # Optional function
     def llm_keyword_extraction_keyllm(self,input):
