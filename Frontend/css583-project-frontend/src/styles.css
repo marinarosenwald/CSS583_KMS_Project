@@ -1,16 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Teko');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body{
+    margin: 0;
+    padding: 0;
     background: #FF847C;
-    /* display: flex; */
     height: 100%;
-    flex-direction: row;
     
   }
 

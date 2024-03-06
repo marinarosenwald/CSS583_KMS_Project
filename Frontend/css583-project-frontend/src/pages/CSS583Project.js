@@ -73,16 +73,7 @@ function CSS583Project() {
 
   return (
     <div id="CSS583Project">
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search..."
-          value={userInputSearch}
-          onChange={handleUserInputChangeSearch}
-        />
-        <button onClick={handleUserInputSubmitSearch}>Submit</button>
-      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
       <div className="side-panel-left">
         <ul>
         {options.map((option, index) => (
@@ -95,6 +86,16 @@ function CSS583Project() {
         </li>
         ))}
         </ul>
+      </div>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="Search..."
+          value={userInputSearch}
+          onChange={handleUserInputChangeSearch}
+        />
+        <button onClick={handleUserInputSubmitSearch}>Submit</button>
       </div>
       <div className="side-panel-right">
         <div className="search-container">
@@ -119,6 +120,7 @@ function CSS583Project() {
           <h2>LLM Response</h2>
           <p>{LLMResponse}</p>
         </div>
+      </div>
       </div>
     </div>
   );
