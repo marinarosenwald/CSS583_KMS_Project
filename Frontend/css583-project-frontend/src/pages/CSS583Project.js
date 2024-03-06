@@ -68,7 +68,7 @@ function CSS583Project() {
         />
         <button onClick={handleUserInputSubmitSearch}>Submit</button>
       </div>
-      <div className="side-panel">
+      <div className="side-panel-left">
         <ul>
           {options.map((option, index) => (
             <li
@@ -81,7 +81,7 @@ function CSS583Project() {
           ))}
         </ul>
       </div>
-      <div className="right-panel">
+      <div className="side-panel-right">
         <div className="search-container">
           <input
             type="text"
