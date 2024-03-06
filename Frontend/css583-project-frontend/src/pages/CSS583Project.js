@@ -7,7 +7,6 @@ function CSS583Project() {
     'Option 2',
     'Option 3',
     'Option 4',
-    // Add more options as needed
   ]);
 
   const [selectedOption, setSelectedOption] = useState(null);
