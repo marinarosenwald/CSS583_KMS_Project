@@ -13,6 +13,7 @@ function CSS583Project() {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const [userInput, setUserInput] = useState('');
+  const [userInputSearch, setUserInputSearch] = useState('');
   const [inputHistory, setInputHistory] = useState([]);
 
   const [LLMResponse, setLLMResponse] = useState('');
@@ -25,6 +26,10 @@ function CSS583Project() {
     setUserInput(event.target.value);
   };
 
+  const handleUserInputChangeSearch = (event) => {
+    setUserInputSearch(event.target.value);
+  };
+
   const handleUserInputSubmitSearch = async () => {
 
     // try {
@@ -35,7 +40,7 @@ function CSS583Project() {
     // }
 
 
-    setUserInput('');
+    setUserInputSearch('');
   };
 
 
@@ -63,8 +68,8 @@ function CSS583Project() {
           type="text"
           className="search-bar"
           placeholder="Search..."
-          value={userInput}
-          onChange={handleUserInputChange}
+          value={userInputSearch}
+          onChange={handleUserInputChangeSearch}
         />
         <button onClick={handleUserInputSubmitSearch}>Submit</button>
       </div>
