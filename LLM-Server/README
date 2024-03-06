@@ -42,6 +42,10 @@ Setup:
         PORT= "8000"
         LLM_TAG= "llm-server"
         LLM_PREFIX="/llm-server"
+        MODEL_PATH ="./llm-models/llama-2-7b-chat.ggmlv3.q4_1.bin"
+        LLAMA_N_CTX=512
+        LLAMA_N_BATCH=32
+        LLAMA_N_VERBOSE=False
     To start run:
         main.py
     To see api documentation go to:
