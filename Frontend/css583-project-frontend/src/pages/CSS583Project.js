@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CSS583ProjectStyle.css';
+import ApiClient from '../api/ApiClient.js';
+
+
 
 function CSS583Project() {
-  const [options, setOptions] = useState([
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
-    // getAllWords()
-  ]);
+  const [options, setOptions] = useState([]);
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -17,6 +14,19 @@ function CSS583Project() {
   const [inputHistory, setInputHistory] = useState([]);
 
   const [LLMResponse, setLLMResponse] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const words = await ApiClient.getAllWords();
+        setOptions(words);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleOptionClick = (index) => {
     setSelectedOption(index === selectedOption ? null : index);
@@ -32,12 +42,12 @@ function CSS583Project() {
 
   const handleUserInputSubmitSearch = async () => {
 
-    // try {
-    //   //getWordbyWord
-    //   const response = getWordbyWord(userInput);
-    // } catch (error) {
-    //   console.error('Error fetching data:', error);
-    // }
+    try {
+      // getWordByWord
+      const response = await ApiClient.getWordbyWord(userInput);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
 
 
     setUserInputSearch('');
@@ -75,15 +85,15 @@ function CSS583Project() {
       </div>
       <div className="side-panel-left">
         <ul>
-          {options.map((option, index) => (
-            <li
-              key={index}
-              className={index === selectedOption ? 'selected' : ''}
-              onClick={() => handleOptionClick(index)}
-            >
-              {option}
-            </li>
-          ))}
+        {options.map((option, index) => (
+          <li
+          key={index}
+          className={index === selectedOption ? 'selected' : ''}
+          onClick={() => handleOptionClick(index)}
+          >
+          {option.word} {/* Render the specific property you want */}
+        </li>
+        ))}
         </ul>
       </div>
       <div className="side-panel-right">
