@@ -7,7 +7,10 @@ function CSS583Project() {
     'Option 2',
     'Option 3',
     'Option 4',
+   //getAllWords()
   ]);
+
+ 
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -19,6 +22,7 @@ function CSS583Project() {
 
   const handleUserInputChange = (event) => {
     setUserInput(event.target.value);
+    // postLlmCall(event.target.value);
   };
 
   return (
