@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './CSS583ProjectStyle.css';
+import ApiClient from '../api/ApiClient.js';
+
 
 function CSS583Project() {
   const [options, setOptions] = useState([
-    'Option 1',
-    'Option 2',
-    'Option 3',
-    'Option 4',
-    // getAllWords()
+    ApiClient.getAllWords()
   ]);
 
   const [selectedOption, setSelectedOption] = useState(null);
@@ -32,12 +30,12 @@ function CSS583Project() {
 
   const handleUserInputSubmitSearch = async () => {
 
-    // try {
-    //   //getWordbyWord
-    //   const response = getWordbyWord(userInput);
-    // } catch (error) {
-    //   console.error('Error fetching data:', error);
-    // }
+    try {
+      // getWordByWord
+      const response = await ApiClient.getWordbyWord(userInput);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
 
 
     setUserInputSearch('');
