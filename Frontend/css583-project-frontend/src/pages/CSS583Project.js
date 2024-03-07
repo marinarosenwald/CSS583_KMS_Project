@@ -134,8 +134,8 @@ function CSS583Project() {
             <p>{selectedWord.word}</p>
             <h2>Definition:</h2>
             <p>{selectedWord.definition}</p>
-            {/* <h2>Alternate Suggestion:</h2>
-            <p>{selectedWord.definition}</p> */}
+            <h2>Alternate Suggestion:</h2>
+            <p>{alternateDefinition}</p>
           </div>
         )}
         </div>
