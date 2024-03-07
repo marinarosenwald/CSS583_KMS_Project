@@ -41,15 +41,17 @@ function CSS583Project() {
   };
 
   const handleUserInputSubmitSearch = async () => {
-
     try {
-      // getWordByWord
-      const response = await ApiClient.getWordbyWord(userInput);
+      const response = await ApiClient.getWordbyWord(userInputSearch);
+      const foundIndex = options.findIndex((option) => option.word === response.word);
+  
+      if (foundIndex !== -1) {
+        setSelectedOption(foundIndex);
+      }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching data for search:', error);
     }
-
-
+  
     setUserInputSearch('');
   };
 
@@ -87,15 +89,38 @@ function CSS583Project() {
         ))}
         </ul>
       </div>
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search..."
-          value={userInputSearch}
-          onChange={handleUserInputChangeSearch}
-        />
-        <button onClick={handleUserInputSubmitSearch}>Submit</button>
+      <div>
+        <div className="search-container">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search..."
+            value={userInputSearch}
+            onChange={handleUserInputChangeSearch}
+          />
+          <button onClick={handleUserInputSubmitSearch}>Submit</button>
+        </div>
+
+        <div className="result-container">
+        {selectedOption !== null && options[selectedOption] && (
+          <div>
+            <h2>Word:</h2>
+            <p>{options[selectedOption].word}</p>
+          </div>
+        )}
+        {selectedOption !== null && options[selectedOption] && (
+          <div>
+            <h2>Abbreviation:</h2>
+            <p>{options[selectedOption].abbreviation}</p>
+          </div>
+        )}
+        {selectedOption !== null && options[selectedOption] && (
+          <div>
+            <h2>Definition:</h2>
+            <p>{options[selectedOption].definition}</p>
+          </div>
+        )}
+        </div>
       </div>
       <div className="side-panel-right">
         <div className="search-container">
