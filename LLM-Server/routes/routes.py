@@ -14,25 +14,27 @@ llm_router = APIRouter()
 # Step 4: Create API end point for retrieving definition when a term is provided
 @llm_router.post("/", response_description="Make an LLM call", status_code=status.HTTP_201_CREATED, response_model=LLM)
 def llm_call(text: LLM = Body(...)):
-    
+    print("received LLM-Server post call")
     # Step 4.1: Extract the text from the user to send into the llama LLM
     text = jsonable_encoder(text)
     res = llm.llm_call(text['text'])
 
+    print(res)
     # Step 4.2: Send definition back to user
     response = {"text" : res}
-    print(response)
+    print("return LLM-Server response")
     return response
 
 # Step 5: Create API endpoint for extracting keywords when a definition is provided
 @llm_router.post("/keywords", response_description="Keywords LLM call", status_code=status.HTTP_201_CREATED, response_model=LLM)
 def llm_keyword_call(text: LLM = Body(...)):
-
+    print("received keywords post call") 
     # Step 5.1: Extract the text from the user to send into the llama LLM
     text = jsonable_encoder(text)
     res = llm.llm_keyword_extraction(text['text'])
+    print(res)
 
     # Step 5.2: Send keywords back to user
     response = {"text" : res}
-    print(response)
+    print("return LLM-Server Keywords response")
     return response
