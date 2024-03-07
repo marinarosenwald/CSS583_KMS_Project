@@ -50,6 +50,11 @@ async function postLlmKeywordsCall(data) {
     return response.data;
 }
 
+async function postLlmDefineTermCall(data) {
+    const url = `${baseUrl}/llm/defineterm`
+    const response = await axios.post(url, data);
+    return response.data;
+}
 
 export default {
   postWord,
@@ -60,4 +65,5 @@ export default {
   deleteWordbyId,
   postLlmCall,
   postLlmKeywordsCall,
+  postLlmDefineTermCall,
 };

@@ -27,3 +27,13 @@ def llm_keyword_call(text: LLM = Body(...)):
                           headers={"Content-Type": "application/json"},
                           timeout=None)
     return response.json()
+
+@llm_router.post("/definition", response_description="Define Term LLM call", status_code=status.HTTP_201_CREATED, response_model=LLM)
+def llm_keyword_call(text: LLM = Body(...)):
+    text = jsonable_encoder(text)
+    url = os.getenv("LLM_SERVER_URL") + 'llm-server/defineterm'
+    response = httpx.post(url,
+                          json=text,
+                          headers={"Content-Type": "application/json"},
+                          timeout=None)
+    return response.json()

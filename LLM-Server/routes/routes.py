@@ -38,3 +38,16 @@ def llm_keyword_call(text: LLM = Body(...)):
     response = {"text" : res}
     print("return LLM-Server Keywords response")
     return response
+
+@llm_router.post("/defineterm", response_description="Definition LLM call", status_code=status.HTTP_201_CREATED, response_model=LLM)
+def llm_definition_call(text: LLM = Body(...)):
+    print("received keyword post call") 
+    # Step 5.1: Extract the text from the user to send into the llama LLM
+    text = jsonable_encoder(text)
+    res = llm.llm_keyword_definition(text['text'])
+    print(res)
+
+    # Step 5.2: Send keywords back to user
+    response = {"text" : res}
+    print("return LLM-Server Keywords response")
+    return response
