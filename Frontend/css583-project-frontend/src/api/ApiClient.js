@@ -16,7 +16,7 @@ async function getAllWords() {
 }
 
 async function getWordbyWord(word) {
-    const url = `${baseUrl}/definition/${word}`
+    const url = `${baseUrl}/definition/word/${word.word}`
     const response = await axios.get(url);
     return response.data;
 }

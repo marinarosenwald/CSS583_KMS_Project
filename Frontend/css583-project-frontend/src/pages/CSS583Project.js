@@ -27,12 +27,12 @@ function CSS583Project() {
   const handleWordClick = async (word) => {
     setSelectedWord(word);
       
-  try {
-   const alternateDefinitionResponse = await apiClient.postLlmDefineTermCall(word);
-   setAlternateDefinition(alternateDefinitionResponse.text);
-   } catch (error) {
-      console.error('Error fetching word definition:', error);
-   }
+  // try {
+  //  const alternateDefinitionResponse = await apiClient.postLlmDefineTermCall(word);
+  //  setAlternateDefinition(alternateDefinitionResponse.text);
+  //  } catch (error) {
+  //     console.error('Error fetching word definition:', error);
+  //  }
   };
 
   const handleNewWordSubmit = async () => {
@@ -105,8 +105,8 @@ function CSS583Project() {
               <p style={{ fontSize: '20px' }}>{selectedWord.word}</p>
               <h2>Definition:</h2>
               <p style={{ fontSize: '20px' }}>{selectedWord.definition}</p>
-              <h2>Alternate Suggestion:</h2>
-              <p style={{ fontSize: '20px' }}>{alternateDefinition}</p>
+              {/* <h2>Alternate Suggestion:</h2> */}
+              {/* <p style={{ fontSize: '20px' }}>{alternateDefinition}</p> */}
             </div>
           )}
         </div>
