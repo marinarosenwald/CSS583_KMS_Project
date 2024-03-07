@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './CSS583ProjectStyle.css';
 import apiClient from '../api/ApiClient.js';
 
-
-
 function CSS583Project() {
   const [words, setWords] = useState([]);
   const [selectedWord, setSelectedWord] = useState(null);
