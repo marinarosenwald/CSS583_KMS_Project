@@ -1,5 +1,3 @@
-from llama_cpp import Llama
-
 # Step 1: Create a llama wrapper class for accessing the local LLM
 from llama2_7b_main import LLM_Llama
 llm = LLM_Llama()

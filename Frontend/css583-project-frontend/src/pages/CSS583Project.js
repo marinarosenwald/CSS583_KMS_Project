@@ -55,7 +55,7 @@ function CSS583Project() {
 
 
   const handleUserInputSubmit = async () => {
-    //postLlmCall(userInput)
+    ApiClient.postLlmCall(userInput)
     setInputHistory((prevHistory) => [...prevHistory, userInput]);
 
     // try {
