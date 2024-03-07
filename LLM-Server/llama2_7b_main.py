@@ -31,7 +31,23 @@ class LLM_Llama():
         self.instruction_prompt = 'Please extract the keywords from the following body of text: '
         
         # Step 2: Apply the definition sent to the LLM
-        self.instruction_prompt += input
+        self.instruction_prompt += input        
+        
+        # Step 4: Retrieve response, format, and send in a response dictionary object
+        output = self.llm(self.instruction_prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
+        print("finished LLM call")
+        res = output['choices'][0]['text'].strip()
+        
+
+        return res
+    
+    def llm_keyword_definition(self,input):
+        print("starting LLM Definition call")
+        # Step 1: Create a system and instruction prompt for the LLM to extract keywords from a definition
+        self.instruction_prompt = 'Please define '
+        
+        # Step 2: Apply the definition sent to the LLM
+        self.instruction_prompt += input        
         
         # Step 4: Retrieve response, format, and send in a response dictionary object
         output = self.llm(self.instruction_prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
