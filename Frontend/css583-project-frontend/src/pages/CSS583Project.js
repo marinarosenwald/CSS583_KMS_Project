@@ -30,7 +30,7 @@ function CSS583Project() {
     setSelectedWord(word);
       
   try {
-   const alternateDefinitionResponse = await apiClient.postLlmDefineTermCall(word.word);
+   const alternateDefinitionResponse = await apiClient.postLlmDefineTermCall(word);
    setAlternateDefinition(alternateDefinitionResponse.text);
    } catch (error) {
       console.error('Error fetching word definition:', error);
@@ -38,106 +38,79 @@ function CSS583Project() {
   };
 
   const handleNewWordSubmit = async () => {
-    try {
-      await apiClient.postWord({ word: newKeyword, definition: newDescription });
- 
-      const allWords = await apiClient.getAllWords();
-      setWords(allWords);
- 
-      setNewKeyword('');
-      setNewDescription('');
-    } catch (error) {
-      console.error('Error adding new word:', error);
-    }
-  };
+   try {
+     await apiClient.postWord({ word: newKeyword, definition: newDescription });
 
-  const handleNewWordSuggestion = async () => {
-    try {     
- 
-      const llmSuggestionText = await apiClient.postLlmDefineTermCall({ word: newKeyword });
-      setLlmSuggestion(llmSuggestionText.text);
- 
-    } catch (error) {
-      console.error('Error adding new word:', error);
-    }
-  };
- 
+     const allWords = await apiClient.getAllWords();
+     setWords(allWords);
 
-  // const handleUserInputChange = (event) => {
-  //   setUserInput(event.target.value);
-  // };
+     setNewKeyword('');
+     setNewDescription('');
+   } catch (error) {
+     console.error('Error adding new word:', error);
+   }
+ };
 
-  // const handleUserInputChangeSearch = (event) => {
-  //   setUserInputSearch(event.target.value);
-  // };
+ const handleNewWordSuggestion = async () => {
+   try {     
 
-  const handleNewSearch = async () => {
-    try {     
- 
-      const searchWord = await apiClient.getWordbyWord({ word: newSearchWord });
-      setSelectedWord(searchWord);
- 
-    } catch (error) {
-      console.error('Error adding new word:', error);
-    }
+     const llmSuggestionText = await apiClient.postLlmDefineTermCall({ word: newKeyword });
+     setLlmSuggestion(llmSuggestionText.text);
 
-  setNewSearchWord('');
-  };
+   } catch (error) {
+     console.error('Error adding new word:', error);
+   }
+ };
 
+ const handleNewSearch = async () => {
+   try {     
 
+     const searchWord = await apiClient.getWordbyWord({ word: newSearchWord });
+     console.log('Search Result:', searchWord);
+     setSelectedWord(searchWord);
 
-  // const handleUserInputSubmit = async () => {
-  //   apiClient.postLlmCall(userInput)
-  //   setInputHistory((prevHistory) => [...prevHistory, userInput]);
-
-  //   // try {
-  //   //   //LLM response API 
-  //   //   const response = await fetch(`LLM RESPONSE API${userInput}`);
-  //   //   const data = await response.json();
-  //   //   setApiResponse(data.response); // Adjust this based on your API structure
-  //   // } catch (error) {
-  //   //   console.error('Error fetching data:', error);
-  //   // }
-
-
-  //   setUserInput('');
-  // };
+   } catch (error) {
+     console.error('Error adding new word:', error);
+   }
+ };
 
   return (
     <div id="CSS583Project">
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-      <div className="side-panel-left">
-        <ul>
-        {words.map((word) => (
-            <li key={word} onClick={() => handleWordClick(word)} style={{ cursor: 'pointer' }}>
-              {word.word}
-        </li>
-        ))}
-        </ul>
-      </div>
-      <div>
-        <div className="search-container">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search..."
-            value={newSearchWord}
-            onChange={(e) => setNewSearchWord(e.target.value)}
-          />
-          <button onClick={handleNewSearch}>Submit</button>
+      
+        <div className="side-panel-left">
+          <ul>
+          {words.map((word) => (
+              <li key={word} onClick={() => handleWordClick(word)} style={{ cursor: 'pointer' }}>
+                {word.word}
+          </li>
+          ))}
+          </ul>
         </div>
+      <div>
+
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Search..."
+              value={newSearchWord}
+              onChange={(e) => setNewSearchWord(e.target.value)}
+            />
+            <button onClick={handleNewSearch}>Search</button>
+          </div>
 
         <div className="result-container">
-        {selectedWord && (
-          <div>
-            <h2>Word:</h2>
-            <p>{selectedWord.word}</p>
-            <h2>Definition:</h2>
-            <p>{selectedWord.definition}</p>
-            <h2>Alternate Suggestion:</h2>
-            <p>{alternateDefinition}</p>
-          </div>
-        )}
+          {selectedWord && (
+            <div>
+              <h2>Word:</h2>
+              <p style={{ fontSize: '20px' }}>{selectedWord.word}</p>
+              <h2>Definition:</h2>
+              <p style={{ fontSize: '20px' }}>{selectedWord.definition}</p>
+              <h2>Alternate Suggestion:</h2>
+              <p style={{ fontSize: '20px' }}>{alternateDefinition}</p>
+            </div>
+          )}
         </div>
         
       </div>
@@ -145,13 +118,21 @@ function CSS583Project() {
       <div className="side-panel-right">
           <h2>Add New Word</h2>
           <div>
-            <label>Word: </label>
-            <input type="text" value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)} />
+            <label style={{ fontSize: '22px' }}>Word: </label> 
+            <input 
+              type="text" 
+              className="input-box"
+              value={newKeyword} 
+              onChange={(e) => setNewKeyword(e.target.value)} />
           </div>
           <p/>
           <div>
-            <label>Description: </label>
-            <input type="text" value={newDescription} onChange={(e) => setNewDescription(e.target.value)} />
+            <label style={{ fontSize: '22px' }}>Description: </label>
+            <input 
+              type="text" 
+              className="input-box"
+              value={newDescription} 
+              onChange={(e) => setNewDescription(e.target.value)} />
           </div>
           <button onClick={handleNewWordSubmit}>Submit</button>
           <p/>
@@ -161,30 +142,6 @@ function CSS583Project() {
         </div>
 
       </div>
-      {/* <div className="side-panel-right">
-        <div className="search-container">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="LLM Text Input"
-            value={userInput}
-            onChange={handleUserInputChange}
-          />
-          <button onClick={handleUserInputSubmit}>Submit</button>
-        </div>
-        <div className="input-history">
-          <h2>Input History</h2>
-          <ul>
-            {inputHistory.map((input, index) => (
-              <li key={index}>{input}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="LLM-response">
-          <h2>LLM Response</h2>
-          <p>{LLMResponse}</p>
-        </div>
-      </div> */}
       </div>
     </div>
   );
