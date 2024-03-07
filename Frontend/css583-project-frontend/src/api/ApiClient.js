@@ -4,7 +4,8 @@ const baseUrl = process.env.REACT_APP_API_BASE_URL
 
 async function postWord(data) {
     const url = `${baseUrl}/definition/`
-    const response = await axios.post(url, data);
+    const requestData = { word: data.word, definition: data.definition, keywords: [ data.word ] };
+    const response = await axios.post(url, requestData);
     return response.data;
 }
 
@@ -51,8 +52,12 @@ async function postLlmKeywordsCall(data) {
 }
 
 async function postLlmDefineTermCall(data) {
-    const url = `${baseUrl}/llm/defineterm`
-    const response = await axios.post(url, data);
+    const url = `${baseUrl}/llm/definition`
+    
+    const requestData = {text: data.word};
+
+      // Send the JSON data in the request body
+    const response = await axios.post(url, requestData);
     return response.data;
 }
 
