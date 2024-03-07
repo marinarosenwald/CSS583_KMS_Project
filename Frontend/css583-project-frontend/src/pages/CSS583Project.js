@@ -145,7 +145,7 @@ function CSS583Project() {
       <div className="side-panel-right">
           <h2>Add New Word</h2>
           <div>
-            <label>Keyword: </label>
+            <label>Word: </label>
             <input type="text" value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)} />
           </div>
           <p/>
