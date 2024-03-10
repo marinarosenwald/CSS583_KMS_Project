@@ -1,5 +1,5 @@
 # Step 1: Create a llama wrapper class for accessing the local LLM
-from llama2_7b_main import LLM_Llama
+from llama_main import LLM_Llama
 llm = LLM_Llama()
 
 # Step 2: Import a LLM class to act as a receiving and response model for the API endpoints
