@@ -1,0 +1,59 @@
+#CSS583Project {
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.search-bar {
+  padding: 15px;
+  padding-right: 20px; 
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 90%;
+}
+
+.side-panel-left {
+  width: 100%;
+  overflow-y: auto;
+  padding: 20px;
+  height: 100%;
+}
+
+.input-box{
+  padding: 5px; 
+  font-size: 18px;
+  border: 2px solid #ccc;
+  font-size: 18px;
+  border-radius: 8px;
+  width: 66%;
+}
+
+.side-panel-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-panel-left li {
+  margin-bottom: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.side-panel-left li.selected {
+  background-color: #d3d3d3;
+}
+
+.side-panel-right {
+  width: 100%;
+  padding: 20px; 
+  overflow-y: auto;
+  height: 100%;
+}
