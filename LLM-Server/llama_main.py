@@ -17,7 +17,7 @@ class LLM_Llama():
         self.instruction_prompt = ""
         
     def llm_call(self,input):
-        # Step 4: Retrieve response, format, and send in a response dictionary object
+        # Step 1: Retrieve response, format, and send in a response dictionary object
         print("starting LLM call")
         output = self.llm(input,temperature = 0.7, max_tokens=448,top_k=20, top_p=0.9, repeat_penalty=1.15) #Note, change prompt to input
         print("finished LLM call")
@@ -33,7 +33,7 @@ class LLM_Llama():
         # Step 2: Apply the definition sent to the LLM
         self.instruction_prompt += input        
         
-        # Step 4: Retrieve response, format, and send in a response dictionary object
+        # Step 3: Retrieve response, format, and send in a response dictionary object
         output = self.llm(self.instruction_prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
         print("finished LLM call")
         res = output['choices'][0]['text'].strip()
@@ -49,7 +49,7 @@ class LLM_Llama():
         # Step 2: Apply the definition sent to the LLM
         self.instruction_prompt += input        
         
-        # Step 4: Retrieve response, format, and send in a response dictionary object
+        # Step 3: Retrieve response, format, and send in a response dictionary object
         output = self.llm(self.instruction_prompt,temperature = 0.7, max_tokens=512,top_k=20, top_p=0.9, repeat_penalty=1.15)
         print("finished LLM call")
         res = output['choices'][0]['text'].strip()

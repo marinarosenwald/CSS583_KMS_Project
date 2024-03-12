@@ -24,6 +24,7 @@ Setup:
         DEFINITION_PREFIX= "/definition"
         LLM_TAG= "llm"
         LLM_PREFIX="/llm"
+        LLM_SERVER_URL="http://127.0.0.1:8000/"
     To start run:
         main.py
     To see api documentation go to:

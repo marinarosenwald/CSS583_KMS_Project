@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Teko');
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background: #FF847C;
+    height: 100%;
+    
+  }
+
+.App{
+    font-family: Teko;
+
+}

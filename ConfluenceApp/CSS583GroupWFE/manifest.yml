@@ -1,10 +1,10 @@
 modules:
   confluence:globalPage:
-    - key: css583helloworlduiapp-hello-world
+    - key: css583groupwfe
       resource: main
       resolver:
         function: resolver
-      title: CSS583 Hello World! UI App
+      title: CSS583GroupWFE
       route: hello-world
   function:
     - key: resolver
@@ -13,4 +13,4 @@ resources:
   - key: main
     path: static/hello-world/build
 app:
-  id: ari:cloud:ecosystem::app/246bdf72-36cf-4d7f-8597-83c4f8378677
+  id: ari:cloud:ecosystem::app/0aaf7ebd-767a-4e52-9827-ffcc6010a92a
